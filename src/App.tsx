@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { experiences, profile, projects, skills } from './data/profile';
 import './App.css';
+import { ProductCrew } from './components/ProductCrew';
 
 const navigation = [
   { id: 'about', label: 'Overview', icon: UserRound },
@@ -140,6 +141,7 @@ function App() {
           </section>
           <section id="projects" className="content-section" aria-labelledby="projects-heading">
             <div className="section-heading"><h2 id="projects-heading">Selected projects</h2><span>Built end to end</span></div>
+            <ProductCrew />
             <div className="project-list">
               {projects.map(project => (
                 <article className="project-row" key={project.name}>

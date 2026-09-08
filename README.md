@@ -27,7 +27,7 @@ The production output is `dist/`. The site is static and does not need a backend
 - `src/App.css`: responsive layout and component styles.
 - `src/index.scss`: local Inter font, base styles and reduced-motion support.
 
-When updating career information, update the data file and replace the PDF together. Do not add claims or project technologies that are not supported by the CV.
+Career information is CV-derived. ProductCrew is a separate source-researched project in `src/components/ProductCrew.tsx`; see `docs/productcrew-source-notes.md` for evidence and scope. Adding a project does not change the original downloadable CV.
 
 ## Assets
 
