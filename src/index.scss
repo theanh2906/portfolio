@@ -1,38 +1,41 @@
-@import "tailwindcss";
-@config "../tailwind.config.js";
-
-@layer base {
-  body {
-    @apply bg-background text-white font-sans overflow-x-hidden;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
 }
 
-@layer utilities {
-  .glass-panel {
-    @apply bg-surface backdrop-blur-md border border-white/10 shadow-xl rounded-2xl;
-  }
-  .glass-panel-hover {
-    @apply hover:bg-surfaceHover hover:border-white/20 transition-all duration-300;
-  }
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-neonBlue to-cyberPurple;
-  }
+:root {
+  font-family: 'Inter', Arial, sans-serif;
+  color: #202321;
+  background: #fff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --green: #007d55;
+  --green-hover: #006344;
+  --ink: #202321;
+  --muted: #616762;
+  --line: #e4e8e5;
+  --coral: #bd4635;
 }
 
-/* Custom Scrollbar for a premium feel */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+* { box-sizing: border-box; letter-spacing: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 32px; }
+body { margin: 0; min-width: 0; font-size: 15px; line-height: 1.65; }
+button, input, textarea { font: inherit; }
+a { color: inherit; text-decoration: none; }
+button, summary, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button, a, summary { touch-action: manipulation; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid #007d55; outline-offset: 4px; }
+::selection { background: #d7ede3; color: #163d2e; }
+h1, h2, h3, h4, p, figure { margin: 0; }
+svg { flex-shrink: 0; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
 }

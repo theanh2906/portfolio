@@ -1,73 +1,38 @@
-# React + TypeScript + Vite
+# Tang The Anh - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, CV-led portfolio built with React, TypeScript and Vite. The Career Profile design uses a sticky desktop profile and a single-column mobile layout.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Requires Node.js 22.12+.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm ci
+npm run dev -- --host 127.0.0.1 --port 5173 --strictPort
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm run lint
+npm run build
+npm run preview -- --host 127.0.0.1 --port 4173
 ```
+
+The production output is `dist/`. The site is static and does not need a backend or environment variables.
+
+## Content
+
+- `src/data/profile.ts`: CV-derived identity, work history, projects and skills.
+- `public/Tang_The_Anh_Senior_Fullstack_NZ_Resume.pdf`: original downloadable CV.
+- `src/App.tsx`: navigation, timeline disclosures, project details and contact actions.
+- `src/App.css`: responsive layout and component styles.
+- `src/index.scss`: local Inter font, base styles and reduced-motion support.
+
+When updating career information, update the data file and replace the PDF together. Do not add claims or project technologies that are not supported by the CV.
+
+## Assets
+
+Inter is self-hosted under `public/fonts/`; its SIL Open Font License is included. The AI Trip Planner thumbnail is a screenshot of the public demo captured on 2026-09-08. System Monitor uses a generated conceptual illustration, identified as such on the page. Project images are optimized WebP files.
+
+## Verification
+
+See `design-qa.md` for browser checks and design comparison evidence. Local screenshots and original assets are in the git-ignored `resources/` directory. Verification covers Chrome desktop/mobile emulation, navigation, disclosures, email copying, PDF integrity and image loading. No automated unit-test suite is configured.
